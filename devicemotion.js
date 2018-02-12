@@ -4,10 +4,10 @@ if (window.DeviceMotionEvent) {
         //console.log(event.acceleration.x + ' m/s2');
         document.getElementById("data").innerText = event.acceleration.x + ' m/s2';
 
-        accelerationHandler(eventData.acceleration, 'moAccel');
-        accelerationHandler(eventData.accelerationIncludingGravity, 'moAccelGrav');
-        rotationHandler(eventData.rotationRate);
-        intervalHandler(eventData.interval);
+        accelerationHandler(event.acceleration, 'moAccel');
+        accelerationHandler(event.accelerationIncludingGravity, 'moAccelGrav');
+        rotationHandler(event.rotationRate);
+        intervalHandler(event.interval);
 
     });
 } else {
