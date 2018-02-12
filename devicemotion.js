@@ -1,32 +1,23 @@
-if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
-    document.getElementById('moApi').innerHTML = 'Generic Sensor API';
+if (window.DeviceOrientationEvent) {
+    document.getElementById("doeSupported").innerText = "Supported DOE!";
+    //window.addEventListener("deviceorientation", handleOrientation, true);
+} else {
+    document.getElementById("doeSupported").innerText = "Not Supported DOE!";
+}
 
-    let lastReadingTimestamp;
-    let accelerometer = new LinearAccelerationSensor();
-    accelerometer.addEventListener('reading', e => {
-        if (lastReadingTimestamp) {
-            intervalHandler(Math.round(accelerometer.timestamp - lastReadingTimestamp));
-        }
-        lastReadingTimestamp = accelerometer.timestamp
-        accelerationHandler(accelerometer, 'moAccel');
+if (window.DeviceMotionEvent) {
+    document.getElementById("dmeSupported").innerText = "Supported DME!";
+    window.addEventListener('devicemotion', function(event) {
+        console.log(event.acceleration.x + ' m/s2');
+        document.getElementById("data").innerText = event.acceleration.x + ' m/s2';
     });
-    accelerometer.start();
+    //window.addEventListener("devicemotion", handleMotion, true);
+} else {
+    document.getElementById("doeSupported").innerText = "Not Supported DME!";
+}
 
-    if ('GravitySensor' in window) {
-        let gravity = new GravitySensor();
-        gravity.addEventListener('reading', e => accelerationHandler(gravity, 'moAccelGrav'));
-        gravity.start();
-    }
-
-    let gyroscope = new Gyroscope();
-    gyroscope.addEventListener('reading', e => rotationHandler({
-        alpha: gyroscope.x,
-        beta: gyroscope.y,
-        gamma: gyroscope.z
-    }));
-    gyroscope.start();
-
-} else if ('DeviceMotionEvent' in window) {
+/*
+if ('DeviceMotionEvent' in window) {
     document.getElementById('moApi').innerHTML = 'Device Motion API';
 
     var onDeviceMotion = function(eventData) {
@@ -62,3 +53,4 @@ function rotationHandler(rotation) {
 function intervalHandler(interval) {
     document.getElementById("moInterval").innerHTML = interval;
 }
+*/
