@@ -11,23 +11,18 @@ if (window.DeviceMotionEvent) {
 
 function myFunction() {
     document.getElementById("y").style.color = "red";
-    window.addEventListener('devicemotion', eventBearbeiten(event));
+    window.addEventListener('devicemotion', function(event) { eventBearbeiten(event) });
 }
 
-function beschlAusschalten() {
-    window.addEventListener('devicemotion', onDeviceMotion, false);
-}
 
 function eventBearbeiten(event) {
     // siehe https://wiki.selfhtml.org/wiki/JavaScript/Objekte/Number/toFixed
+    document.getElementById("z").style.color = "green";
     document.getElementById("x").innerHTML = 'x ' + event.acceleration.x.toFixed(2);
     document.getElementById("y").innerHTML = 'y ' + event.acceleration.y.toFixed(2);
     document.getElementById("z").innerHTML = 'z ' + event.acceleration.z.toFixed(2);
 }
 
-/*
-    window.addEventListener('devicemotion', onDeviceMotion, false);
-*/
 
 function accelerationHandler(acceleration, targetId) {
     var info, xyz = "[X, Y, Z]";
