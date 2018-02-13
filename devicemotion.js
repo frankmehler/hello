@@ -12,7 +12,7 @@ if (window.DeviceMotionEvent) {
 function zeigeBeschleunigung() {
     document.getElementById("y").style.color = "red";
     //Event mit Parameter: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
-    window.addEventListener('devicemotion', function() {
+    window.addEventListener('devicemotion', function(event) {
         eventBearbeiten(event);
     });
 }
