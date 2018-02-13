@@ -15,7 +15,7 @@ function showPosition(position) {
     document.getElementById("laenge").innerHTML = 'Längengrad: ' + position.coords.longitude;
     document.getElementById("genau").innerHTML = 'Genauigkeit: ' + position.coords.accuracy + 'm';
     document.getElementById("hoch").innerHTML = 'Höhe: ' + position.coords.altitude;
-    document.getElementById("genauhoch").innerHTML = 'Genauigkeit Höhe: ' + position.coords.altitudeAccuracy + 'm';
+    document.getElementById("richtung").innerHTML = 'Himmelsrichtung in Grad: ' + position.coords.heading;
     //'Höhe: ' + position.coords.altitude 
     //'Genauigkeit Höhe: ' + position.coords.altitudeAccuracy
 }
