@@ -9,14 +9,16 @@ if (window.DeviceMotionEvent) {
     document.getElementById("dmeSupported").innerText = "Device Motion wird nicht unterstützt!";
 }
 
+maxi = -1;
+
 function zeigeBeschleunigung() {
     document.getElementById("y").style.color = "red";
+    document.getElementById("meinMax").innerHTML = 'max: ' + maxi;
     //Event mit Parameter: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
     window.addEventListener('devicemotion', function(event) {
         eventBearbeiten(event);
     });
 }
-
 
 function eventBearbeiten(event) {
     // siehe https://wiki.selfhtml.org/wiki/JavaScript/Objekte/Number/toFixed
@@ -24,4 +26,8 @@ function eventBearbeiten(event) {
     document.getElementById("x").innerHTML = 'x ' + event.acceleration.x.toFixed(2);
     document.getElementById("y").innerHTML = 'y ' + event.acceleration.y.toFixed(2);
     document.getElementById("z").innerHTML = 'z ' + event.acceleration.z.toFixed(2);
+    if (event.acceleration.z > maxi) {
+        maxi = event.acceleration.z;
+        document.getElementById("meinMax").innerHTML = 'max: ' + maxi;
+    }
 }
