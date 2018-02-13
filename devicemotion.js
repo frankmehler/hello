@@ -9,10 +9,10 @@ if (window.DeviceMotionEvent) {
     document.getElementById("dmeSupported").innerText = "Device Motion wird nicht unterstützt!";
 }
 
-function myFunction() {
+function zeigeBeschleunigung() {
     document.getElementById("y").style.color = "red";
     //Event mit Parameter: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
-    window.addEventListener('devicemotion', function(event) { eventBearbeiten(event) });
+    window.addEventListener('devicemotion', function() { eventBearbeiten(event) });
 }
 
 
@@ -22,10 +22,4 @@ function eventBearbeiten(event) {
     document.getElementById("x").innerHTML = 'x ' + event.acceleration.x.toFixed(2);
     document.getElementById("y").innerHTML = 'y ' + event.acceleration.y.toFixed(2);
     document.getElementById("z").innerHTML = 'z ' + event.acceleration.z.toFixed(2);
-}
-
-function beschlAusschalten() {
-    document.getElementById("x").style.color = "blue";
-    //Event mit Parameter: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
-    window.removeEventListener('devicemotion', function(event) { eventBearbeiten(event) });
 }
