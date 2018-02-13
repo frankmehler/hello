@@ -1,8 +1,26 @@
 if (window.DeviceMotionEvent) {
     document.getElementById("dmeSupported").innerText = "OK - Device Motion wird unterstützt!";
-    window.addEventListener('devicemotion', eventBearbeiten(event));
+    window.addEventListener('devicemotion', function(event) {
+        document.getElementById("xBeschl").innerHTML = 'x ' + event.acceleration.x.toFixed(2);
+        document.getElementById("yBeschl").innerHTML = 'y ' + event.acceleration.y.toFixed(2);
+        document.getElementById("zBeschl").innerHTML = 'z ' + event.acceleration.z.toFixed(2);
+    });
 } else {
     document.getElementById("dmeSupported").innerText = "Device Motion wird nicht unterstützt!";
+}
+
+function myFunction() {
+    document.getElementById("yBeschl").style.color = "red";
+    window.addEventListener('devicemotion', function(event) {
+        document.getElementById("zBeschl").style.color = "green";
+        document.getElementById("xBeschl").innerHTML = 'x ' + event.acceleration.x.toFixed(2);
+        document.getElementById("yBeschl").innerHTML = 'y ' + event.acceleration.y.toFixed(2);
+        document.getElementById("zBeschl").innerHTML = 'z ' + event.acceleration.z.toFixed(2);
+    });
+}
+
+function beschlAusschalten() {
+    window.addEventListener('devicemotion', onDeviceMotion, false);
 }
 
 function eventBearbeiten(event) {
