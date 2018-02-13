@@ -1,17 +1,15 @@
 if (window.DeviceMotionEvent) {
     document.getElementById("dmeSupported").innerText = "OK - Device Motion wird unterstützt!";
-    window.addEventListener('devicemotion', function(event) {
-        //console.log(event.acceleration.x + ' m/s2');
-        document.getElementById("data").innerText = event.acceleration.x + ' m/s2';
-
-        accelerationHandler(event.acceleration, 'moAccel');
-        accelerationHandler(event.accelerationIncludingGravity, 'moAccelGrav');
-        rotationHandler(event.rotationRate);
-        intervalHandler(event.interval);
-
-    });
+    window.addEventListener('devicemotion', eventBearbeiten(event));
 } else {
     document.getElementById("dmeSupported").innerText = "Device Motion wird nicht unterstützt!";
+}
+
+function eventBearbeiten(event) {
+    // siehe https://wiki.selfhtml.org/wiki/JavaScript/Objekte/Number/toFixed
+    document.getElementById("xBeschl").innerHTML = 'x ' + event.acceleration.x.toFixed(2);
+    document.getElementById("yBeschl").innerHTML = 'y ' + event.acceleration.y.toFixed(2);
+    document.getElementById("zBeschl").innerHTML = 'z ' + event.acceleration.z.toFixed(2);
 }
 
 /*
