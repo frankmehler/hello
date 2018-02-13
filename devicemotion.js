@@ -8,15 +8,15 @@ if (window.DeviceMotionEvent) {
         document.getElementById("yBeschl").innerHTML = 'y ' + event.acceleration.y.toFixed(2);
         document.getElementById("zBeschl").innerHTML = 'z ' + event.acceleration.z.toFixed(2);
         if (event.acceleration.x > maxiX) {
-            maxi = event.acceleration.z;
+            maxiX = event.acceleration.z;
             document.getElementById("meinMaxX").innerHTML = 'max x: ' + maxiX;
         }
         if (event.acceleration.y > maxiY) {
-            maxi = event.acceleration.z;
+            maxiY = event.acceleration.z;
             document.getElementById("meinMaxY").innerHTML = 'max y: ' + maxiY;
         }
         if (event.acceleration.z > maxiZ) {
-            maxi = event.acceleration.z;
+            maxiZ = event.acceleration.z;
             document.getElementById("meinMaxZ").innerHTML = 'max z: ' + maxiZ;
         }
     });
