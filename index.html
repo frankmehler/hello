@@ -1,61 +1,18 @@
-<!doctype html>
+<!DOCTYPE HTML >
 <html>
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-    <title>Hello, world!</title>
+    <title>Mein Dokument</title>
 </head>
 
 <body>
-    <h3>Google Maps Demo</h3>
-    <div id="googleMap" style="width:100%;height:400px;"></div>
-
-    <script>
-        function initMap() {
-            var thbingen = {
-                lat: 49.952381,
-                lng: 7.925409
-            };
-            var mapProp = {
-                center: new google.maps.LatLng(thbingen),
-                zoom: 15,
-                backgroundColor: 'red',
-                disableDoubleClickZoom: true,
-            };
-            var meineKarte = new google.maps.Map(document.getElementById('googleMap'), mapProp);
-
-            var marker = new google.maps.Marker({
-                position: thbingen,
-                map: meineKarte
-            });
-
-            meineKarte.addListener('center_changed', function() {
-                // 3 seconds after the center of the map has changed, pan back to the
-                // marker.
-                window.setTimeout(function() {
-                    meineKarte.panTo(marker.getPosition());
-                }, 3000);
-            });
-
-            marker.addListener('click', function() {
-                meineKarte.setZoom(16);
-                meineKarte.setCenter(marker.getPosition());
-            });
-
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA84ZrNTtrdRZNl0E8l5PFlyDo59riRPCw&callback=initMap">
-    </script>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Hier ist ein Kommentar -->
+    <img src="images/pic_bulbon.gif">
+    <a href="http://www.wikipedia.de">Hier ist Wikipedia</a>
+    <a href="http://www.th-bingen.de">
+        <img src="images/logo.svg" width="100" height="50">
+    </a>
 </body>
 
 </html>
