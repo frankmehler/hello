@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <body>
+        <head><meta charset="utf-8"></head>
+        <p id="dmeSupported"> Info über Device Motion</p>
+        <h1 id="Alphadrehung"> Daten z</h1>
+        <h1 id="Betadrehung"> Daten x</h1>
+        <h1 id="Gammadrehung"> Daten y</h1>
 
-    <!-- JavaScript-Funktion, zeigt gamma (Y-Achsen-Drehung) und beta (X-Achsen-Drehung) an -->
+
+
     <script>
-      window.addEventListener("deviceorientation", handleOrientation, true);
+        if (window.DeviceMotionEvent) {
+        document.getElementById("dmeSupported").innerText = "OK - Device Motion wird unterstützt!";
+    window.addEventListener("deviceorientation", handleOrientation, true);
+    function handleOrientation(event) {
+        var absolute = event.absolute;
+        var alpha    = event.alpha;
+        var beta     = event.beta;
+        var gamma    = event.gamma;
 
-        function handleOrientation(event) 
-        {
-          var absolute = event.absolute;
-          var beta     = event.beta;
-          var gamma    = event.gamma;
-        
-          // Zuweisen und Selektieren der Varaible "output"
-
-          var output = document.querySelector('.output');
-          
-        function handleOrientation(event) 
-        {
-          var x = event.beta;  // Grad in Richtung: [-180,180]
-          var y = event.gamma; // Grad in Richtung: [-90,90]
-          
-            output.innerHTML  = "beta : " + x + "\n";
-            output.innerHTML += "gamma: " + y + "\n";
-          
-            // Sorgt dafür, dass das Smartphone nicht kopfüber rotiert
-            // x-Wert erhält die Reichweite -90° bis 90° [-90,90]
-            if (x >  90) { x =  90};
-            if (x < -90) { x = -90};
-          
-            // Erleichtert das rechnen
-            // x aund y zwischen: [0,180]
-            x += 90;
-            y += 90;
-          }
-
-          window.addEventListener('deviceorientation', handleOrientation);
+        document.getElementById("Alphadrehung").innerHTML = 'Drehung um z-Achse ' + alpha;
+        document.getElementById("Betadrehung").innerHTML = 'Drehung um x-Achse ' + beta;
+        document.getElementById("Gammadrehung").innerHTML = 'Drehung um y-Achse ' + gamma;
+}
+}
+  else {
+        document.getElementById("dmeSupported").innerText = "Device Motion wird nicht unterstützt!";
         }
-      </script>
-            
-      <pre class="output"></pre>
-
-  </body>
+    </script>
+    <img src=image/gammadrehung.jpg>
 </html>
