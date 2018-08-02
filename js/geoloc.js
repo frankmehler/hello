@@ -14,8 +14,9 @@ function holePosition() {
 function showPosition(position) {
     document.getElementById("breite").innerHTML = 'Breitengrad: ' + position.coords.latitude;
     document.getElementById("laenge").innerHTML = 'Längengrad: ' + position.coords.longitude;
+    document.getElementById("genau").innerHTML = 'Genauigkeit: ' + position.coords.accuracy;
 }
-// Fortsetzung des Scripts geoloc.js:
+
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
