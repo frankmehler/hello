@@ -1,30 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <body>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JavaScript-Funktion, zeigt gamma (Y-Achsen-Drehung) und beta (X-Achsen-Drehung) an -->
+    <script>
+      window.addEventListener("deviceorientation", handleOrientation, true);
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        function handleOrientation(event) 
+        {
+          var absolute = event.absolute;
+          var beta     = event.beta;
+          var gamma    = event.gamma;
+        
+          // Zuweisen und Selektieren der Varaible "output"
 
-    <title>Hello, world!</title>
-</head>
+          var output = document.querySelector('.output');
+          
+        function handleOrientation(event) 
+        {
+          var x = event.beta;  // Grad in Richtung: [-180,180]
+          var y = event.gamma; // Grad in Richtung: [-90,90]
+          
+            output.innerHTML  = "beta : " + x + "\n";
+            output.innerHTML += "gamma: " + y + "\n";
+          
+            // Sorgt dafür, dass das Smartphone nicht kopfüber rotiert
+            // x-Wert erhält die Reichweite -90° bis 90° [-90,90]
+            if (x >  90) { x =  90};
+            if (x < -90) { x = -90};
+          
+            // Erleichtert das rechnen
+            // x aund y zwischen: [0,180]
+            x += 90;
+            y += 90;
+          }
 
-<body>
-    <p id="dmeSupported"> Info über Device Motion</p>
+          window.addEventListener('deviceorientation', handleOrientation);
+        }
+      </script>
+            
+      <pre class="output"></pre>
 
-    <h1 id="xBeschl"> Daten x</h1>
-    <h1 id="yBeschl"> Daten y</h1>
-    <h1 id="zBeschl"> Daten z</h1>
-    <h1 id="meinMax"> max z</h1>
-
-    <script src="js/devicemotion.js"></script>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-
+  </body>
 </html>
