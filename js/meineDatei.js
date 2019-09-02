@@ -12,8 +12,6 @@ function initMap() {
     let mapProp = {
         center: new google.maps.LatLng(thbingen),
         zoom: 15,
-        backgroundColor: 'red',
-        disableDoubleClickZoom: true,
     };
     let meineKarte = new google.maps.Map(document.getElementById('googleMap'), mapProp);
 
@@ -21,27 +19,4 @@ function initMap() {
         position: thbingen,
         map: meineKarte
     });
-    marker.addListener('click', function () {
-        meineKarte.setZoom(16);
-    });
-    meineKarte.addListener('center_changed', function () {
-        window.setTimeout(function () {
-            meineKarte.panTo(marker.getPosition());
-        }, 3000);
-    });
 }
-
-
-/*
-function initSecondMap() {
-    let map = new google.maps.Map(document.getElementById('googleMap'), {
-        center: { lat: 34.397, lng: 150.644 },
-        scrollwheel: false,
-        zoom: 2
-    });
-}
-*/
-
-
-
-
