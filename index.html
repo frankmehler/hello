@@ -9,46 +9,15 @@
 </head>
 
 <body>
-  <h3>Google Maps Demo</h3>
-  <div id="floating-panel">
-    <b>Start: </b>
-    <select id="start">
-      <option value="ChIJA-Pm86zvvUcRgEHbENXUIgQ">Bingen</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-    </select>
-    <b>End: </b>
-    <select id="end">
-      <option value="ChIJeRPfMy6RvUcRoBvbENXUIgQ">Mainz</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-    </select>
+  <div class="row">
+    <div class="col-md-5">
+      <h1>Uhrzeit</h1>
+      <h1 id="time">19:53:00</h1>
+    </div>
   </div>
-  <div id="map"></div>
-
-
   <script src="js/meineDatei.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMPm41JIzpLpjJFQFKI-tQekVt_qDNxUU &callback=initMap">
-  </script>
+
 </body>
+
 
 </html>
