@@ -2,17 +2,15 @@
 
 alert("Hallo");
 
-if ('ondevicelight' in window) {
-    window.addEventListener('devicelight', function(event) {
-      let body = document.querySelector('body');
-      if (event.value < 50) {
-        alert('darklight');
-        body.classList.remove('brightlight');
-      } else {
-        alert('brightlight');
-        body.classList.remove('darklight');
-      }
-    });
-  } else {
-    alert('devicelight event not supported');
-  }
+window.addEventListener('userproximity', function(event) {
+    if (event.near) {
+      // let's power off the screen
+      alert("Hallo nahe");
+      navigator.mozPower.screenEnabled = false;
+      
+    } else {
+        alert("Hallo fern");
+      // Otherwise, let's power on the screen
+      navigator.mozPower.screenEnabled = true;
+    }
+  });
