@@ -8,10 +8,7 @@ ctx.stroke();
 
 if (window.DeviceOrientationEvent) {
     document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
-    alert ('Hi');
     window.addEventListener('deviceorientation', function(event) {
-        alert ('Hi2');
-
         document.getElementById("alpha").innerHTML = 'alpha ' + event.alpha.toFixed(2);
         document.getElementById("beta").innerHTML = 'beta ' + event.beta;
         document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma;
