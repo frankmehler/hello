@@ -28,7 +28,6 @@ function ereignisEingetreten(event) {
 }
 
 function handleEreignis(event) {
-    alert("Hallo2");
     //document.getElementById("alpha").innerHTML = 'alpha ' + event.alpha.toFixed(2);
     document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
     document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
@@ -50,19 +49,18 @@ function handleEreignis(event) {
     if (ball.style.left > 200) ball.style.left = 190;
     if (ball.style.left < 0) ball.style.left = 10;
 
-    x = x / 10;
-    y = y / 10;
+    x = Math.round( x / 10);
+    y = Math.round(y / 10);
 
     ball.style.top = (ball.style.top + x) + "px";
     ball.style.left = (ball.style.left + y) + "px";
-    alert("Hallo2.1 " + ball.style.top);
 
     let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2);
     ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(2);
     ausgabe = ausgabe + " top: " + ball.style.top;
     ausgabe = ausgabe + " left: " + ball.style.left;
     output.innerHTML = ausgabe;
-    alert("Hallo2.2" + ausgabe);
+    alert("Hallo3.2" + ausgabe);
 }
 
 
