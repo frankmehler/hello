@@ -27,7 +27,7 @@ function ereignisEingetreten(event) {
 }
 
 function handleEreignis(event) {
-    alert("Hallo7");
+    alert("Hallo8");
     //document.getElementById("alpha").innerHTML = 'alpha ' + event.alpha.toFixed(2);
     document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
     document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
@@ -44,10 +44,10 @@ function handleEreignis(event) {
     else
         y = Math.max(-20, y);
 
-    if (ball.style.top > 100)
-        x = 100;
-    if (ball.style.left < -100)
-        y = -100;
+    if (ball.style.top > 200) ball.style.top = 190;
+    if (ball.style.top < 0) ball.style.top = 10;
+    if (ball.style.left > 200) ball.style.top = 190;
+    if (ball.style.left < 0) ball.style.top = 10;
 
     x = x / 10;
     y = y / 10;
@@ -57,8 +57,8 @@ function handleEreignis(event) {
 
     let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2) + "\n";
     ausgabe = ausgabe + "y: " + x + " gamma: " + event.gamma.toFixed(2) + "\n";
-    ausgabe = ausgabe + "  " + "  " + ball.style.top.toFixed(2) + "\n";
-    ausgabe = ausgabe + "  " + ball.style.left.toFixed(2) + "\n";
+    ausgabe = ausgabe + "top: " + ball.style.top.toFixed(2) + "\n";
+    ausgabe = ausgabe + "left: " + ball.style.left.toFixed(2) + "\n";
     output.innerHTML = ausgabe;
 }
 
