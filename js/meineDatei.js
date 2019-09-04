@@ -16,15 +16,14 @@ function verschieben() {
 
 if (window.DeviceOrientationEvent) {
     document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
-    window.addEventListener('deviceorientation', ereignisEingetreten);
+    window.addEventListener('deviceorientation', window.setInterval(ereignisEingetreten, 3000));
 }
 else {
     document.getElementById("supported").innerText = "Keine Device Orient!";
 }
 
 function ereignisEingetreten(event) {
-    setTimeout( ereignisEingetreten, 3000);
-    alert("Hallo3");
+    alert("Hallo5");
     //document.getElementById("alpha").innerHTML = 'alpha ' + event.alpha.toFixed(2);
     document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
     document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
@@ -54,7 +53,9 @@ function ereignisEingetreten(event) {
 
     let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2) + "\n";
     ausgabe = ausgabe + "y: " + x + " gamma: " + event.gamma.toFixed(2) + "\n";
-    ausgabe = ausgabe + "  " + "  " + ball.style.top + "\n";
-    ausgabe = ausgabe + "  " + ball.style.left + "\n";
+    ausgabe = ausgabe + "  " + "  " + ball.style.top.toFixed(2) + "\n";
+    ausgabe = ausgabe + "  " + ball.style.left.toFixed(2) + "\n";
     output.innerHTML = ausgabe;
 }
+
+
