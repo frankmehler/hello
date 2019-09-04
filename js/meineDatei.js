@@ -23,11 +23,12 @@ else {
 }
 
 function ereignisEingetreten(event) {
-    window.setInterval(handleEreignis(event), 3000);
+    //window.setInterval(handleEreignis(event), 3000);
+    handleEreignis(event);
 }
 
 function handleEreignis(event) {
-    alert("Hallo8");
+    alert("Hallo9");
     //document.getElementById("alpha").innerHTML = 'alpha ' + event.alpha.toFixed(2);
     document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
     document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
@@ -46,14 +47,15 @@ function handleEreignis(event) {
 
     if (ball.style.top > 200) ball.style.top = 190;
     if (ball.style.top < 0) ball.style.top = 10;
-    if (ball.style.left > 200) ball.style.top = 190;
-    if (ball.style.left < 0) ball.style.top = 10;
-
+    if (ball.style.left > 200) ball.style.left = 190;
+    if (ball.style.left < 0) ball.style.left = 10;
+    alert("Hallo9.1");
     x = x / 10;
     y = y / 10;
 
     ball.style.top = (ball.style.top + x) + "px";
     ball.style.left = (ball.style.left + y) + "px";
+    alert("Hallo9.2");
 
     let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2) + "\n";
     ausgabe = ausgabe + "y: " + x + " gamma: " + event.gamma.toFixed(2) + "\n";
