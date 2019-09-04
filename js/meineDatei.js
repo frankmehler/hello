@@ -1,25 +1,18 @@
+"use strict";
 
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke(); 
 
-if('ondeviceproximity' in window) {
-    // Fired when object is in the detection zone
-    window.addEventListener('deviceproximity', function(event) {
-        // Object distance in centimeters 
-        alert(event.value + " centimeters");
+if (window.DeviceOrientationEvent) {
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
+    window.addEventListener('deviceorientation', function(event) {
+        document.getElementById("xBeschl").innerHTML = 'alpha ' + event.alpha.toFixed(2);
+        document.getElementById("yBeschl").innerHTML = 'beta ' + event.beta;
+        document.getElementById("zBeschl").innerHTML = 'gamme ' + event.gamma;
     });
 } else {
-    alert("deviceproximity not supported");
+    document.getElementById("supported").innerText = "Device Orient wird nicht unterstützt!";
 }
-
-if('ondeviceproximity' in window){
-    // Fired when object is in the detection zone
-    window.addEventListener('userproximity', function(event) {
-        if(event.near == true) {
-            alert("Object is near");
-        } else {
-            alert("Object is far");
-        }
-    });
-} else {
-    alert("userproximity not supported");
-}
-
