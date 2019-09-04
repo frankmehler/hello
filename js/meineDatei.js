@@ -57,11 +57,12 @@ function handleEreignis(event) {
     ball.style.left = (ball.style.left + y) + "px";
     alert("Hallo9.2");
 
-    let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2) + "\n";
-    ausgabe = ausgabe + "y: " + x + " gamma: " + event.gamma.toFixed(2) + "\n";
+    let ausgabe = "x: " + x.toFixed(2) + " beta: " + event.beta.toFixed(2) + "\n";
+    ausgabe = ausgabe + "y: " + y.toFixed(2) + " gamma: " + event.gamma.toFixed(2) + "\n";
     ausgabe = ausgabe + "top: " + ball.style.top.toFixed(2) + "\n";
     ausgabe = ausgabe + "left: " + ball.style.left.toFixed(2) + "\n";
     output.innerHTML = ausgabe;
+    alert("Hallo9.3");
 }
 
 
