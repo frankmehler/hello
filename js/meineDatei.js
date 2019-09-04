@@ -2,6 +2,7 @@
 
 let ball = document.getElementById("meinBall");
 let garden = document.getElementById("meinSpiefeld");
+let output = document.getElementById("output");
 
 let maxX = garden.clientWidth - ball.clientWidth;
 let maxY = garden.clientHeight - ball.clientHeight;
@@ -16,7 +17,7 @@ function verschieben() {
 if (window.DeviceOrientationEvent) {
     document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
     window.addEventListener('deviceorientation', function (event) {
-        document.getElementById("alpha").innerHTML = 'alpha ' + event.alpha.toFixed(2);
+        //document.getElementById("alpha").innerHTML = 'alpha ' + event.alpha.toFixed(2);
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
         document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
         //let x = event.beta;  // In degree in the range [-180,180]
@@ -30,12 +31,17 @@ if (window.DeviceOrientationEvent) {
         //ball.style.left = (maxY * y / 180 - 10) + "px";
         let x = ball.style.top + event.beta / 10;
         let y = ball.style.top + event.gamma / 10;
+        let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2) + "\n";
+        ausgabe = ausgabe + "y: " + x + " gamma: " + event.gamma.toFixed(2);
         console.log("x: " + x + " beta: " + event.beta.toFixed(2));
         console.log("y: " + x + " gamma: " + event.gamma.toFixed(2));
         ball.style.top = Math.max(maxX, x) + "px";
         ball.style.left = Math.max(maxY, y) + "px";
         console.log("  " + ball.style.top);
-        console.log("  " + ball.style.top);
+        console.log("  " + ball.style.left);
+        ausgabe = ausgabe + "  " + "  " + ball.style.top + "\n";        
+        ausgabe = ausgabe + "  " + ball.style.left + "\n";
+        output.innerHTML = ausgabe;
  
         //ball.style.top = Math.max(maxX * x / 180 - 10) + "px";
         //ball.style.left = (maxY * y / 180 - 10) + "px";
