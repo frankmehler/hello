@@ -2,7 +2,6 @@
 
 let ball = document.getElementById("meinBall");
 let garden = document.getElementById("meinSpiefeld");
-let output = document.getElementById("output");
 
 let maxX = garden.clientWidth - ball.clientWidth;
 let maxY = garden.clientHeight - ball.clientHeight;
@@ -23,10 +22,7 @@ if (window.DeviceOrientationEvent) {
         let x = event.beta;  // In degree in the range [-180,180]
         let y = event.gamma; // In degree in the range [-90,90]
 
-        output.innerHTML = "beta : " + x + "\n";
-        output.innerHTML += "gamma: " + y + "\n";
-
-        // Because we don't want to have the device upside down
+               // Because we don't want to have the device upside down
         // We constrain the x value to the range [-90,90]
         if (x > 90) { x = 90; }
         if (x < -90) { x = -90; }
