@@ -22,9 +22,9 @@ else {
     document.getElementById("supported").innerText = "Keine Device Orient!";
 }
 
-function ereignisEingetreten(event) {
-    //window.setInterval(handleEreignis(event), 3000);
-    handleEreignis(event);
+function ereignisEingetreten() {
+    window.setInterval(handleEreignis, 3000);
+    //handleEreignis(event);
 }
 
 function handleEreignis(event) {
@@ -33,7 +33,6 @@ function handleEreignis(event) {
     document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
     let x = event.beta;  // In degree in the range [-180,180] nach vorne - hinten +
     let y = event.gamma; // In degree in the range [-90,90] nach rechts + nach links -
-    //Transformation in positiven Bereich
     if (x > 0)
         x = Math.max(20, x);
     else
@@ -49,7 +48,7 @@ function handleEreignis(event) {
     if (ball.style.left > 200) ball.style.left = 190;
     if (ball.style.left < 0) ball.style.left = 10;
 
-    x = Math.round( x / 10);
+    x = Math.round(x / 10);
     y = Math.round(y / 10);
 
     ball.style.top = (ball.style.top + x) + "px";
@@ -60,7 +59,7 @@ function handleEreignis(event) {
     ausgabe = ausgabe + " top: " + ball.style.top;
     ausgabe = ausgabe + " left: " + ball.style.left;
     output.innerHTML = ausgabe;
-    alert("Hallo3.2" + ausgabe);
+    alert("Hallo x " + ausgabe);
 }
 
 
