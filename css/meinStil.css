@@ -8,10 +8,10 @@
   
   .ball {
     position: absolute;
-    top   : 90px;
-    left  : 90px;
+    top   : 100px;
+    left  : 100px;
     width : 20px;
     height: 20px;
-    background: green;
+    background: red;
     border-radius: 100%;
   }

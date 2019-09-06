@@ -16,7 +16,7 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt345";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt.";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -24,38 +24,37 @@ else {
 }
 
 function handleEvent(event) {
-    //alert (event.beta);
-    //setInterval(changeBall, 3000, event.beta, event.gamma);
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
     // 200 ms vergangen
-    if (zeit > vorigeZeit + 200) {
+    if (zeit > vorigeZeit + 100) {
         vorigeZeit = zeit;
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
         document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(1);
 
-
-        let x = event.beta;  // In degree in the range [-180,180] nach vorne - hinten +
-        let y = event.gamma; // In degree in the range [-90,90] nach rechts + nach links -
+        let x = event.beta;  // Grad im Wertebereich [-180, +180] nach vorne - hinten +
+        let y = event.gamma; // Grad im Wertebereich [-90, +90] nach rechts + nach links -
         if (x > 0)
             x = Math.max(20, x);
         else
             x = Math.max(-20, x);
 
         if (y > 0)
-            y = Math.max(20, y);
+            y = Math.max(10, y);
         else
-            y = Math.max(-20, y);
+            y = Math.max(-10, y);
 
         x = Math.round(x / 10);
         y = Math.round(y / 5);
 
         // parseInt gibt die erste Zahl (Integer) zurück, die gefunden wird, px am Ende wird entfernt
-        let top = parseInt(ball.style.top);
-        let left = parseInt(ball.style.left);
-        if (top > 200) top = 190;
-        if (top < 0) top = 10;
-        if (left > 200) left = 190;
-        if (left < 0) left = 10;
+        let top = 0;
+        top = parseInt(ball.style.top);
+        let left = 0;
+        left = parseInt(ball.style.left);
+        if (top > parseInt(garden.style.top)) top = parseInt(garden.style.top) - 20;
+        if (top < 0) top = 20;
+        if (left > parseInt(garden.style.left)) left = parseInt(garden.style.left) - 20;
+        if (left < 0) left = 20;
 
         ball.style.top = (top + x) + "px";
         ball.style.left = (top + y) + "px";
