@@ -16,7 +16,7 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt999";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -27,51 +27,42 @@ function handleEvent(event) {
     //alert (event.beta);
     //setInterval(changeBall, 3000, event.beta, event.gamma);
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
-    if (zeit > vorigeZeit + 100) {
+    // 200 ms vergangen
+    if (zeit > vorigeZeit + 200) {
         vorigeZeit = zeit;
-        changeBall(event.beta, event.gamma);
-        //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
-        //alert("beta: " + beta + " gamma: " + gamma);
+        document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
+        document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(1);
+        let x = event.beta;  // In degree in the range [-180,180] nach vorne - hinten +
+        let y = event.gamma; // In degree in the range [-90,90] nach rechts + nach links -
+        if (x > 0)
+            x = Math.max(20, x);
+        else
+            x = Math.max(-20, x);
+    
+        if (y > 0)
+            y = Math.max(20, y);
+        else
+            y = Math.max(-20, y);
+    
+        x = Math.round(x / 10);
+        y = Math.round(y / 10);
+    
+        if (ball.style.top > 200) ball.style.top = 190;
+        if (ball.style.top < 0) ball.style.top = 10;
+        if (ball.style.left > 200) ball.style.left = 190;
+        if (ball.style.left < 0) ball.style.left = 10;
+    
+        ball.style.top = (ball.style.top + x) + "px";
+        ball.style.left = (ball.style.left + y) + "px";
+    
+        let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2);
+        ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(2);
+        ausgabe = ausgabe + " top: " + ball.style.top;
+        ausgabe = ausgabe + " left: " + ball.style.left;
+        output.innerHTML = ausgabe;
+        alert("Hallo aaa " + ausgabe);
     }
 }
-function changeBall(beta, gamma) {
-    document.getElementById("beta").innerHTML = 'beta ' + beta.toFixed(2);
-    document.getElementById("gamma").innerHTML = 'gamma ' + gamma.toFixed(2);
-    
 
-    /*
-    document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
-    document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
-    let x = event.beta;  // In degree in the range [-180,180] nach vorne - hinten +
-    let y = event.gamma; // In degree in the range [-90,90] nach rechts + nach links -
-    if (x > 0)
-        x = Math.max(20, x);
-    else
-        x = Math.max(-20, x);
-
-    if (y > 0)
-        y = Math.max(20, y);
-    else
-        y = Math.max(-20, y);
-
-    x = Math.round(x / 10);
-    y = Math.round(y / 10);
-
-    if (ball.style.top > 200) ball.style.top = 190;
-    if (ball.style.top < 0) ball.style.top = 10;
-    if (ball.style.left > 200) ball.style.left = 190;
-    if (ball.style.left < 0) ball.style.left = 10;
-
-    ball.style.top = (ball.style.top + x) + "px";
-    ball.style.left = (ball.style.left + y) + "px";
-
-    let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2);
-    ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(2);
-    ausgabe = ausgabe + " top: " + ball.style.top;
-    ausgabe = ausgabe + " left: " + ball.style.left;
-    output.innerHTML = ausgabe;
-    alert("Hallo aaa " + ausgabe);
-    */
-}
 
 
