@@ -29,7 +29,6 @@ function handleEvent(event) {
     let zeit = new Date();
     if (zeit.getSeconds() > vorigeZeit + 3) {
         vorigeZeit = zeit.getSeconds();
-        document.write(vorigeZeit + "   ");
         changeBall(event.beta, event.gamma);
         //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
         //alert("beta: " + beta + " gamma: " + gamma);
