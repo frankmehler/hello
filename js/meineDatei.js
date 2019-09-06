@@ -57,15 +57,19 @@ function handleEvent(event) {
         ball.style.top = (top + x) + "px";
         ball.style.left = (left + y) + "px";
 
-        let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(1) + "<br>";
-        ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(1) + "<br>";
-        ausgabe = ausgabe + " top: " + ball.style.top + "<br>";
-        ausgabe = ausgabe + " left: " + ball.style.left + "<br>";
-        output.innerHTML = ausgabe;
         let goalTop = parseInt(goal.style.top);        
         let goalLeft = parseInt(goal.style.left);
         if ((top + x) == goalTop && ((left + y)== goalLeft))
             alert ("Treffer");
+
+        let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(1) + "<br>";
+        ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(1) + "<br>";
+        ausgabe = ausgabe + " top: " + ball.style.top + "<br>";
+        ausgabe = ausgabe + " left: " + ball.style.left + "<br>";       
+         ausgabe = ausgabe + " goal top:: " + goalTop + "<br>";       
+         ausgabe = ausgabe + " goal left: " + goalLeft + "<br>";
+        output.innerHTML = ausgabe;
+
     }
 }
 
