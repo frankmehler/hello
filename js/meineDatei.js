@@ -15,8 +15,8 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!!!";
-    window.addEventListener('deviceorientation', handleEvent);
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt???";
+    window.addEventListener('deviceorientation', setInterval(handleEvent, 3000, event));
 }
 else {
     document.getElementById("supported").innerText = "Keine Device Orient!";
@@ -25,7 +25,7 @@ else {
 function handleEvent(event) {
     //let zeit = new Date();
     //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
-    alert("Event: " + event.beta);
+    alert("Event::: " + event.beta);
     document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
     document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
     let x = event.beta;  // In degree in the range [-180,180] nach vorne - hinten +
