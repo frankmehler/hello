@@ -1,12 +1,10 @@
 "use strict";
 
-let ball = document.getElementById("meinBall");
 //let garden = document.getElementById("meinSpiefeld");
+let ball = document.getElementById("meinBall");
+let goal = document.getElementById("meinTor");
 let output = document.getElementById("output");
-let vorigeZeit = 0;
-
-//let maxX = garden.clientWidth - ball.clientWidth;
-//let maxY = garden.clientHeight - ball.clientHeight;
+let vorigeZeit = 0; // Zeitzähler
 
 let meinButton = document.getElementById("myBtn");
 meinButton.addEventListener("click", verschieben);
@@ -16,9 +14,9 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!!!";
-    ball.style.top = 100 + "px";
-    ball.style.left = 100 + "px";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
+    ball.style.top = 90 + "px"; // Startposition
+    ball.style.left = 90 + "px"; // Startposition
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -27,7 +25,7 @@ else {
 
 function handleEvent(event) {
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
-    // 200 ms vergangen
+    // 50 ms vergangen
     if (zeit > vorigeZeit + 50) {
         vorigeZeit = zeit;
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
@@ -64,7 +62,10 @@ function handleEvent(event) {
         ausgabe = ausgabe + " top: " + ball.style.top + "<br>";
         ausgabe = ausgabe + " left: " + ball.style.left + "<br>";
         output.innerHTML = ausgabe;
-        //alert("Hallo aaa " + ausgabe);
+        let goalTop = parseInt(goal.style.top);        
+        let goalLeft = parseInt(goal.style.left);
+        if ((top + x) == goalTop && ((left + y)== goalLeft))
+            alert ("Treffer");
     }
 }
 
