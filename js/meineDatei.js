@@ -16,7 +16,7 @@ function verschieben() {
 
 if (window.DeviceOrientationEvent) {
     document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
-    window.addEventListener('deviceorientation', setInterval(function () { handleEvent(event); }, 3000));
+    window.addEventListener('deviceorientation', setInterval(handleEvent.bind(null, event), 3000));
 }
 else {
     document.getElementById("supported").innerText = "Keine Device Orient!";
