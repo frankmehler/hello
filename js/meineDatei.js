@@ -15,11 +15,11 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt?!?!";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
-    document.getElementById("supported").innerText = "Keine Device Orient!?!?";
+    document.getElementById("supported").innerText = "Keine Device Orient";
 }
 
 function handleEvent(event) {
@@ -29,8 +29,10 @@ function handleEvent(event) {
 function changeBall(beta, gamma) {
     let zeit = new Date();
     if (zeit.getSeconds() % 3 == 0) {
-        alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
-        alert("beta: " + beta + " gamma: " + gamma);
+        document.getElementById("beta").innerHTML = 'beta ' + beta.toFixed(2);
+        document.getElementById("gamma").innerHTML = 'gamma ' + gamma.toFixed(2);
+        //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
+        //alert("beta: " + beta + " gamma: " + gamma);
     }
 
     /*
