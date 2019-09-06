@@ -19,17 +19,20 @@ if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
-    document.getElementById("supported").innerText = "Keine Device Orient!";
+    document.getElementById("supported").innerText = "Keine Device Orient!?!?";
 }
 
 function handleEvent(event) {
-   //alert (event.beta);
-   setInterval (changeBall, 3000, event.beta, event.gamma);
+    //alert (event.beta);
+    changeBall(event.beta, event.gamma);
 }
 function changeBall(beta, gamma) {
     let zeit = new Date();
-    alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
-    alert("beta: " + beta + " gamma: " + gamma);  
+    if (zeit.getSeconds() % 3 == 0) {
+        alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
+        alert("beta: " + beta + " gamma: " + gamma);
+    }
+
     /*
     document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
     document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
