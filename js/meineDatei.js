@@ -3,6 +3,7 @@
 let ball = document.getElementById("meinBall");
 let garden = document.getElementById("meinSpiefeld");
 let output = document.getElementById("output");
+let vorigeZeit = 0;
 
 //let maxX = garden.clientWidth - ball.clientWidth;
 //let maxY = garden.clientHeight - ball.clientHeight;
@@ -15,7 +16,7 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt555";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt666";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -24,17 +25,19 @@ else {
 
 function handleEvent(event) {
     //alert (event.beta);
-    setTimeout(changeBall, 3000, event.beta, event.gamma);
     //setInterval(changeBall, 3000, event.beta, event.gamma);
+    let zeit = new Date();
+    if (zeit.getSeconds() > vorigeZeit - 1) {
+        vorigeZeit = zeit.getSeconds();
+        changeBall(event.beta, event.gamma);
+        //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
+        //alert("beta: " + beta + " gamma: " + gamma);
+    }
 }
 function changeBall(beta, gamma) {
     document.getElementById("beta").innerHTML = 'beta ' + beta.toFixed(2);
     document.getElementById("gamma").innerHTML = 'gamma ' + gamma.toFixed(2);
-    let zeit = new Date();
-    if (zeit.getSeconds() % 3 == 0) {
-        //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
-        //alert("beta: " + beta + " gamma: " + gamma);
-    }
+    
 
     /*
     document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
