@@ -16,7 +16,7 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!!!";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -28,7 +28,7 @@ function handleEvent(event) {
     //setInterval(changeBall, 3000, event.beta, event.gamma);
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
     // 200 ms vergangen
-    if (zeit > vorigeZeit + 200) {
+    if (zeit > vorigeZeit + 3000) {
         vorigeZeit = zeit;
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
         document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(1);
@@ -55,12 +55,12 @@ function handleEvent(event) {
         ball.style.top = (ball.style.top + x) + "px";
         ball.style.left = (ball.style.left + y) + "px";
     
-        let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(2);
-        ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(2);
-        ausgabe = ausgabe + " top: " + ball.style.top;
-        ausgabe = ausgabe + " left: " + ball.style.left;
+        let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(1) + "<br>";
+        ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(1) + "<br>";
+        ausgabe = ausgabe + " top: " + ball.style.top + "<br>";
+        ausgabe = ausgabe + " left: " + ball.style.left + "<br>";
         output.innerHTML = ausgabe;
-        alert("Hallo aaa " + ausgabe);
+        //alert("Hallo aaa " + ausgabe);
     }
 }
 
