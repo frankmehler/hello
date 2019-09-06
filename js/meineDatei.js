@@ -29,15 +29,13 @@ function handleEvent(event) {
     if (zeit > vorigeZeit + 50) {
         alert ("Hallo2");
         vorigeZeit = zeit;
-        // beta = Grad im Wertebereich [-180, +180] nach vorne - hinten +
-        document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
-        // gamma = Grad im Wertebereich [-90, +90] nach rechts + nach links -
-        document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(1);
 
         // parseInt gibt die erste Zahl (Integer) zurück, die gefunden wird, px am Ende wird entfernt
         //let top = parseInt(ball.style.top);
         //ball.style.top = (top + x) + "px";
 
+        // beta = Grad im Wertebereich [-180, +180] nach vorne - hinten +
+        // gamma = Grad im Wertebereich [-90, +90] nach rechts + nach links -
         let ausgabe = "beta: " + event.beta.toFixed(1) + "<br>";
         ausgabe = ausgabe + "gamma: " + event.gamma.toFixed(1) + "<br>";
         ausgabe = ausgabe + "top: " + ball.style.top + "<br>";
