@@ -36,12 +36,12 @@ function handleEvent(event) {
         let x = event.beta;  // Grad im Wertebereich [-180, +180] nach vorne - hinten +
         let y = event.gamma; // Grad im Wertebereich [-90, +90] nach rechts + nach links -
         if (x > 0)
-            x = Math.max(20, x);
+            x = Math.min(20, x);
         else
             x = Math.max(-20, x);
 
         if (y > 0)
-            y = Math.max(20, y);
+            y = Math.min(20, y);
         else
             y = Math.max(-20, y);
 
@@ -57,7 +57,7 @@ function handleEvent(event) {
         if (left < 0) left = 20;
 
         ball.style.top = (top + x) + "px";
-        ball.style.left = (top + y) + "px";
+        ball.style.left = (left + y) + "px";
 
         let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(1) + "<br>";
         ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(1) + "<br>";
