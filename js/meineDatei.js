@@ -23,9 +23,11 @@ else {
 }
 
 function handleEvent(event) {
+    alert ("Hallo");
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
     // 50 ms vergangen
     if (zeit > vorigeZeit + 50) {
+        alert ("Hallo2");
         vorigeZeit = zeit;
         // beta = Grad im Wertebereich [-180, +180] nach vorne - hinten +
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
