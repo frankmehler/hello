@@ -15,22 +15,22 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt???";
-    window.addEventListener('deviceorientation', setInterval(handleEvent, 3000, event.beta, event.gamma));
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt)))";
+    window.addEventListener('deviceorientation', setInterval(handleEvent, 3000, event));
 }
 else {
     document.getElementById("supported").innerText = "Keine Device Orient!";
 }
 
-function handleEvent(beta, gamma) {
-    //let zeit = new Date();
-    //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
-    alert("beta::: " + beta);    
+function handleEvent(event) {
+    let zeit = new Date();
+    alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
+    alert("beta: " + event.beta);    
    
-    document.getElementById("beta").innerHTML = 'beta ' + beta.toFixed(2);
-    document.getElementById("gamma").innerHTML = 'gamma ' + gamma.toFixed(2);
-    let x = beta;  // In degree in the range [-180,180] nach vorne - hinten +
-    let y = gamma; // In degree in the range [-90,90] nach rechts + nach links -
+    document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
+    document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
+    let x = event.beta;  // In degree in the range [-180,180] nach vorne - hinten +
+    let y = event.gamma; // In degree in the range [-90,90] nach rechts + nach links -
     if (x > 0)
         x = Math.max(20, x);
     else
