@@ -24,13 +24,7 @@ else {
 
 function handleEvent(event) {
     //alert (event.beta);
-    let zeit = new Date();
-    let sekunden = zeit.getSeconds();
-    if (sekunden % 3 == 0) {
-        document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(2);
-        document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(2);
-        //changeBall(event.beta, event.gamma);
-    }
+    setTimeout(changeBall, 3000, event.beta, event.gamma);
     //setInterval(changeBall, 3000, event.beta, event.gamma);
 }
 function changeBall(beta, gamma) {
