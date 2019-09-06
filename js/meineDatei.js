@@ -16,7 +16,7 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt888";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt999";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -26,9 +26,9 @@ else {
 function handleEvent(event) {
     //alert (event.beta);
     //setInterval(changeBall, 3000, event.beta, event.gamma);
-    let zeit = new Date();
-    if (zeit.getSeconds() > vorigeZeit + 3) {
-        vorigeZeit = zeit.getSeconds();
+    let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
+    if (zeit > vorigeZeit + 100) {
+        vorigeZeit = zeit;
         changeBall(event.beta, event.gamma);
         //alert("Zeit " + zeit.getMinutes() + "." + zeit.getSeconds());
         //alert("beta: " + beta + " gamma: " + gamma);
