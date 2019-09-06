@@ -1,7 +1,7 @@
 "use strict";
 
 let ball = document.getElementById("meinBall");
-let garden = document.getElementById("meinSpiefeld");
+//let garden = document.getElementById("meinSpiefeld");
 let output = document.getElementById("output");
 let vorigeZeit = 0;
 
@@ -16,7 +16,9 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt.";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!!!";
+    ball.style.top = 100 + "px";
+    ball.style.left = 100 + "px";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -26,7 +28,7 @@ else {
 function handleEvent(event) {
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
     // 200 ms vergangen
-    if (zeit > vorigeZeit + 100) {
+    if (zeit > vorigeZeit + 50) {
         vorigeZeit = zeit;
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
         document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(1);
@@ -39,21 +41,19 @@ function handleEvent(event) {
             x = Math.max(-20, x);
 
         if (y > 0)
-            y = Math.max(10, y);
+            y = Math.max(20, y);
         else
-            y = Math.max(-10, y);
+            y = Math.max(-20, y);
 
         x = Math.round(x / 10);
         y = Math.round(y / 5);
 
         // parseInt gibt die erste Zahl (Integer) zurück, die gefunden wird, px am Ende wird entfernt
-        let top = 0;
-        top = parseInt(ball.style.top);
-        let left = 0;
-        left = parseInt(ball.style.left);
-        if (top > parseInt(garden.style.top)) top = parseInt(garden.style.top) - 20;
+        let top = parseInt(ball.style.top);
+        let left = parseInt(ball.style.left);
+        if (top > 200) top = 180;
         if (top < 0) top = 20;
-        if (left > parseInt(garden.style.left)) left = parseInt(garden.style.left) - 20;
+        if (left > 180) left = 180;
         if (left < 0) left = 20;
 
         ball.style.top = (top + x) + "px";
