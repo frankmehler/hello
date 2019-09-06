@@ -16,7 +16,7 @@ function verschieben() {
 }
 
 if (window.DeviceOrientationEvent) {
-    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt!!!";
+    document.getElementById("supported").innerText = "OK - Device Orient wird unterstützt345";
     window.addEventListener('deviceorientation', handleEvent);
 }
 else {
@@ -32,6 +32,8 @@ function handleEvent(event) {
         vorigeZeit = zeit;
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
         document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(1);
+        // parseInt gibt die erste Zahl (Integer) zurück, die gefunden wird, px am Ende wird entfernt
+
         let x = event.beta;  // In degree in the range [-180,180] nach vorne - hinten +
         let y = event.gamma; // In degree in the range [-90,90] nach rechts + nach links -
         if (x > 0)
@@ -47,13 +49,15 @@ function handleEvent(event) {
         x = Math.round(x / 10);
         y = Math.round(y / 10);
     
-        if (ball.style.top > 200) ball.style.top = 190;
-        if (ball.style.top < 0) ball.style.top = 10;
-        if (ball.style.left > 200) ball.style.left = 190;
-        if (ball.style.left < 0) ball.style.left = 10;
+        let top = parseInt(ball.style.top);     
+        let left = parseInt(ball.style.left);
+        if (top > 200) top = 190;
+        if (top < 0) top = 10;
+        if (left > 200) left = 190;
+        if (left < 0) left = 10;
     
-        ball.style.top = (ball.style.top + x) + "px";
-        ball.style.left = (ball.style.left + y) + "px";
+        ball.style.top = (top + x) + "px";
+        ball.style.left = (top + y) + "px";
     
         let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(1) + "<br>";
         ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(1) + "<br>";
