@@ -1,0 +1,21 @@
+{
+    "name": "meine Erste Progressive Web App",
+    "short_name": "meinPWA",
+    "description": "Progressive Web App",
+    "icons": [
+        {
+            "src": "images/icons8-ioxhost-16.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons8-ioxhost-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "theme_color": "#B12A34",
+    "background_color": "#B12A34"
+}
