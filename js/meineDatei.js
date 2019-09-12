@@ -26,6 +26,7 @@ else {
 }
 
 function handleEvent(event) {
+    alert ("Hallo Event-Handler");
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
     // 50 ms vergangen
     if (zeit > vorigeZeit + 50) {
