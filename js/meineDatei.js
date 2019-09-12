@@ -26,10 +26,11 @@ else {
 }
 
 function handleEvent(event) {
-    alert ("Hallo Event-Handler");
+    //alert ("Hallo Event-Handler");
     let zeit = Date.now(); // Zeit in Millisekunden seit 1.1.1970
     // 50 ms vergangen
     if (zeit > vorigeZeit + 50) {
+        alert ("Hallo 222");
         vorigeZeit = zeit;
         document.getElementById("beta").innerHTML = 'beta ' + event.beta.toFixed(1);
         document.getElementById("gamma").innerHTML = 'gamma ' + event.gamma.toFixed(1);
@@ -64,6 +65,7 @@ function handleEvent(event) {
         let goalLeft = parseInt(goal.style.left);
         if ((top + x) == goalTop && ((left + y) == goalLeft))
             alert("Treffer");
+            /*
         if ((top + x + 1) == goalTop && ((left + y + 1) == goalLeft))
             alert("Treffer");
         if ((top + x - 1) == goalTop && ((left + y - 1) == goalLeft))
@@ -72,6 +74,7 @@ function handleEvent(event) {
             alert("Treffer");
         if ((top + x - 1) == goalTop && ((left + y + 1) == goalLeft))
             alert("Treffer");
+            */
 
         let ausgabe = "x: " + x + " beta: " + event.beta.toFixed(1) + "<br>";
         ausgabe = ausgabe + "y: " + y + " gamma: " + event.gamma.toFixed(1) + "<br>";
