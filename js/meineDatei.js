@@ -70,14 +70,14 @@ function handleEvent(event) {
         let goalTop = parseInt(goal.style.top);
         let goalLeft = parseInt(goal.style.left);
         if ((top + x) == goalTop && ((left + y) == goalLeft))
-            alert("Treffer! Heli hat gewonnen!");
+            alert("Treffer!");
         if ((top + x + 1) == goalTop && ((left + y + 1) == goalLeft))
-            alert("Treffer! Heli hat gewonnen!");
+            alert("Treffer!");
         if ((top + x - 1) == goalTop && ((left + y - 1) == goalLeft))
-            alert("Treffer! Heli hat gewonnen!");
+            alert("Treffer!");
         if ((top + x + 1) == goalTop && ((left + y - 1) == goalLeft))
-            alert("Treffer! Heli hat gewonnen!");
+            alert("Treffer!");
         if ((top + x - 1) == goalTop && ((left + y + 1) == goalLeft))
-            alert("Treffer! Heli hat gewonnen!");
+            alert("Treffer!");
     }
 }
