@@ -1,4 +1,15 @@
-  .spielfeld {
+h1 {    
+    background-color:yellow;
+}
+
+.meineKlasse {
+    color: blue;
+}
+
+#eindeutigeID {
+    text-decoration: underline;
+}
+.garden {
     position: relative;
     width : 200px;
     height: 200px;
@@ -16,12 +27,4 @@
     border-radius: 100%;
   }
 
-  .goal {
-    position: absolute;
-    top   : 150px;
-    left  : 150px;
-    width : 20px;
-    height: 20px;
-    background: green;
-    border-radius: 10%;
-  }
+

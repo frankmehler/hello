@@ -2,24 +2,22 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/meinStil.css">
-  <link rel="manifest" href="manifest.json">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/meinStil.css">
 </head>
 
 <body>
-  <div id="meinSpielfeld" class="spielfeld">
-    <div id="meinBall" class="ball"></div>
-    <div id="meinTor" class="goal"></div>
-  </div>
+    <p id="geoSupported"> Info über Geolocation</p>
+    <button id="meinButton">Hole Position</button>
 
-  <button id="myBtn">Andere Position</button>
+    <h2 id="breite"> Breitengrad</h2>
+    <h2 id="laenge"> Längengrad</h2>
 
-  <p id="output">Ausgabe</p>
+    <script src="js/geoloc.js"></script>
 
-  <script src="js/meineDatei.js"></script>
 </body>
 
 </html>
